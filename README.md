@@ -1,56 +1,73 @@
-# Welcome to your Expo app 👋
+# Refresca SP
 
-This is an [Expo](https://expo.dev) project created with [`create-expo-app`](https://www.npmjs.com/package/create-expo-app).
+O **Refresca SP** é uma iniciativa de CitizenTech desenvolvida para mitigar os impactos das ondas de calor extremo nas grandes cidades. Focando no bem-estar de populações vulneráveis — como trabalhadores ambulantes, pessoas em situação de rua e idosos —, a solução disponibiliza informações em tempo real sobre temperaturas críticas e mapeia pontos de apoio e refúgio urbano (como praças arborizadas, tendas de acolhimento e bebedouros públicos).
 
-## Get started
+### Papel deste aplicativo no projeto
 
-1. Install dependencies
+Este aplicativo corresponde ao módulo de **Mobile Development & IOT** da Global Solution. Ele atua como a interface do cidadão e consome um servidor local de dados em JSON (sensores IoT, pontos de refúgio, locais de busca e localização do usuário):
 
-   ```bash
-   npm install
-   ```
+- **Visualização geográfica em tempo real:** Mapa interativo estilo Google Maps com posicionamento do cidadão (Avenida Paulista), barra de busca alinhada ao relógio (`DD/MM/YYYY` e horário) e estações sensoras (ESP32) distribuídas por regiões estratégicas de São Paulo.
+- **Navegação em abas (tabs):** Acesso rápido às telas de **Mapa**, **Abrigos** e **Alertas ativos**, além da tela de **Notificações** (histórico paginado de alertas recentes) e das páginas de **detalhes do alerta** e **detalhes do abrigo**.
+- **Lista de alertas com filtro de raio:** Permite filtrar os alertas ativos por distância em relação ao usuário (de 1 km a 15 km) com paginação.
+- **Simulação climática autônoma:** Ciclo de variação térmica a cada 5 segundos com inicialização defasada (staggered) por sensor.
+- **Emissão de alertas escalonados:** 4 níveis de risco térmico (`LOW`, `MEDIUM`, `HIGH`, `EXTREME`), cada um com cor e recomendações oficiais de proteção.
+- **Trava de estabilidade para demonstração:** Ao emitir um novo alerta ou transicionar de nível, o sensor mantém a temperatura fixa por 3 ciclos (15 segundos) para visualização e avaliação facilitada.
+- **Detecção de proximidade e busca de abrigos:** Quando o cidadão está na região de um alerta ativo, o sistema disponibiliza o botão "Buscar abrigo", direcionando para a listagem ordenada de pontos de hidratação e áreas sombreadas (Contrato 3).
+- **Servidor de dados e tratamento de erros:** Os dados iniciais são servidos por um servidor HTTP em Node.js (`server/server.js`) na porta `3001`, iniciado automaticamente junto com o app, e o aplicativo trata cenários de indisponibilidade, timeout e erro com opção de nova tentativa.
 
-2. Start the app
+## Pré-requisitos
 
-   ```bash
-   npx expo start
-   ```
+- **Node.js:** Versão 20 ou superior instalada.
+- **npm:** Gerenciador de pacotes padrão do Node.
 
-In the output, you'll find options to open the app in a
+## Como rodar o projeto
 
-- [development build](https://docs.expo.dev/develop/development-builds/introduction/)
-- [Android emulator](https://docs.expo.dev/workflow/android-studio-emulator/)
-- [iOS simulator](https://docs.expo.dev/workflow/ios-simulator/)
-- [Expo Go](https://expo.dev/go), a limited sandbox for trying out app development with Expo
-
-You can start developing by editing the files inside the **src/app** directory. This project uses [file-based routing](https://docs.expo.dev/router/introduction).
-
-## Get a fresh project
-
-When you're ready, run:
+1. Instale as dependências do projeto:
 
 ```bash
-npm run reset-project
+npm install
 ```
 
-This command will move the starter code to the **example** directory and create a blank **src/app** directory where you can start developing.
+2. Inicie a aplicação web. O script `scripts/dev.js` sobe o servidor de dados na porta `3001`, aguarda o `/health` responder e só então inicia o Metro Bundler. Ao encerrar o app (`Ctrl+C`), o servidor também é encerrado:
 
-### Other setup steps
+```bash
+npm run web
+```
 
-- To set up ESLint for linting, run `npx expo lint`, or follow our guide on ["Using ESLint and Prettier"](https://docs.expo.dev/guides/using-eslint/)
-- If you'd like to set up unit testing, follow our guide on ["Unit Testing with Jest"](https://docs.expo.dev/develop/unit-testing/)
-- Learn more about the TypeScript setup in this template in our guide on ["Using TypeScript"](https://docs.expo.dev/guides/typescript/)
+3. Após a inicialização do Metro Bundler, acesse no navegador:
 
-## Learn more
+```text
+http://localhost:8081
+```
 
-To learn more about developing your project with Expo, look at the following resources:
+### Comandos úteis do servidor de dados
 
-- [Expo documentation](https://docs.expo.dev/): Learn fundamentals, or go into advanced topics with our [guides](https://docs.expo.dev/guides).
-- [Learn Expo tutorial](https://docs.expo.dev/tutorial/introduction/): Follow a step-by-step tutorial where you'll create a project that runs on Android, iOS, and the web.
+Caso queira executar apenas o servidor de dados:
 
-## Join the community
+```bash
+# Subir somente o servidor de dados
+npm run server
 
-Join our community of developers creating universal apps.
+# Verificar o status da API
+curl http://localhost:3001/health
+```
 
-- [Expo on GitHub](https://github.com/expo/expo): View our open source platform and contribute.
-- [Discord community](https://chat.expo.dev): Chat with Expo users and ask questions.
+| Endpoint | Descrição |
+| --- | --- |
+| `GET /health` | Status do servidor (`{ "status": "ok" }`) |
+| `GET /sensors` | Lista de sensores IoT iniciais |
+| `GET /refuges` | Lista de pontos de refúgio e hidratação (Contrato 3) |
+| `GET /places` | Locais pesquisáveis na barra de busca |
+| `GET /user-location` | Coordenadas, endereço e raio de afetação do cidadão |
+
+> **Dica para teste mobile:** Abra as ferramentas de desenvolvedor do navegador (F12) e ative a barra de emulação de dispositivos móveis para conferir a interface responsiva. Para testar pelo aplicativo **Expo Go** no celular, certifique-se de que o computador e o celular estão na mesma rede Wi-Fi e que a porta `3001` está liberada no firewall (ou defina `EXPO_PUBLIC_API_URL=http://<IP_DO_PC>:3001`).
+
+## Integrantes
+
+| Nome | RM |
+| --- | --- |
+| Gustavo Atanazio | 559098 |
+| Matheus Vinícius | 555177 |
+| Nicolas Borges | 556617 |
+| Gustavo Coelho | 556289 |
+| Igor Ribeiro | 556010 |
