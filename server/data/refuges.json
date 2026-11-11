@@ -1,0 +1,112 @@
+[
+  {
+    "refugeID": "REF-105",
+    "name": "Bebedouro Parque Trianon",
+    "type": "AGUA_E_SOMBRA",
+    "address": { "cep": "01310-100", "streetName": "Avenida Paulista", "number": 1500, "neighborhood": "Bela Vista" },
+    "coordinates": { "latitude": -23.5622, "longitude": -46.6542 },
+    "isOpen": true,
+    "openingHours": "Diariamente, 6h às 18h",
+    "amenities": ["Água potável", "Sombra", "Bancos", "Banheiro"],
+    "description": "Parque arborizado no coração da Paulista, com bebedouros gratuitos e áreas de descanso à sombra."
+  },
+  {
+    "refugeID": "REF-106",
+    "name": "Tenda de acolhimento MASP",
+    "type": "TENDA_PREFEITURA",
+    "address": { "cep": "01310-200", "streetName": "Avenida Paulista", "number": 1578, "neighborhood": "Bela Vista" },
+    "coordinates": { "latitude": -23.5614, "longitude": -46.6558 },
+    "isOpen": true,
+    "openingHours": "Durante alertas, 8h às 20h",
+    "amenities": ["Água potável", "Sombra", "Primeiros socorros"],
+    "description": "Tenda da prefeitura instalada no vão livre do MASP durante ondas de calor, com equipe de apoio."
+  },
+  {
+    "refugeID": "REF-107",
+    "name": "Bebedouro Conjunto Nacional",
+    "type": "BEBEDOURO",
+    "address": { "cep": "01310-100", "streetName": "Avenida Paulista", "number": 2073, "neighborhood": "Consolação" },
+    "coordinates": { "latitude": -23.5568, "longitude": -46.6616 },
+    "isOpen": true,
+    "openingHours": "24 horas",
+    "amenities": ["Água potável"],
+    "description": "Bebedouro público de acesso livre na calçada em frente ao Conjunto Nacional."
+  },
+  {
+    "refugeID": "REF-108",
+    "name": "Praça Alexandre de Gusmão",
+    "type": "PRACA_ARBORIZADA",
+    "address": { "cep": "01311-000", "streetName": "Alameda Santos", "number": 80, "neighborhood": "Cerqueira César" },
+    "coordinates": { "latitude": -23.5649, "longitude": -46.6528 },
+    "isOpen": true,
+    "openingHours": "Diariamente, 5h às 22h",
+    "amenities": ["Sombra", "Bancos", "Bebedouro"],
+    "description": "Praça com muitas árvores e bancos, ótima para descansar longe do sol."
+  },
+  {
+    "refugeID": "REF-109",
+    "name": "Centro de Convivência Bela Vista",
+    "type": "CENTRO_CLIMATIZADO",
+    "address": { "cep": "01318-000", "streetName": "Rua Treze de Maio", "number": 600, "neighborhood": "Bela Vista" },
+    "coordinates": { "latitude": -23.5687, "longitude": -46.6491 },
+    "isOpen": false,
+    "openingHours": "Seg. a sex., 8h às 17h",
+    "amenities": ["Ar-condicionado", "Água potável", "Banheiro", "Assentos"],
+    "description": "Espaço climatizado da prefeitura para acolhimento de idosos e pessoas em situação de rua."
+  },
+  {
+    "refugeID": "REF-110",
+    "name": "Parque da Luz",
+    "type": "AGUA_E_SOMBRA",
+    "address": { "cep": "01120-010", "streetName": "Praça da Luz", "number": 2, "neighborhood": "Bom Retiro" },
+    "coordinates": { "latitude": -23.5343, "longitude": -46.6347 },
+    "isOpen": true,
+    "openingHours": "Terça a domingo, 10h às 18h",
+    "amenities": ["Água potável", "Sombra", "Bancos"],
+    "description": "Jardim histórico com sombra abundante e bebedouros distribuídos pelas alamedas."
+  },
+  {
+    "refugeID": "REF-111",
+    "name": "Tenda Praça da Sé",
+    "type": "TENDA_PREFEITURA",
+    "address": { "cep": "01001-000", "streetName": "Praça da Sé", "number": 1, "neighborhood": "Sé" },
+    "coordinates": { "latitude": -23.5503, "longitude": -46.6338 },
+    "isOpen": true,
+    "openingHours": "Durante alertas, 8h às 20h",
+    "amenities": ["Água potável", "Sombra", "Primeiros socorros"],
+    "description": "Ponto de apoio da prefeitura na Praça da Sé com distribuição de água e atendimento básico."
+  },
+  {
+    "refugeID": "REF-112",
+    "name": "Parque Ibirapuera - Lago",
+    "type": "AGUA_E_SOMBRA",
+    "address": { "cep": "04094-050", "streetName": "Avenida Pedro Álvares Cabral", "number": 1, "neighborhood": "Vila Mariana" },
+    "coordinates": { "latitude": -23.5875, "longitude": -46.6582 },
+    "isOpen": true,
+    "openingHours": "Diariamente, 5h às 21h",
+    "amenities": ["Água potável", "Sombra", "Banheiro", "Bancos"],
+    "description": "Grandes áreas de sombra e bebedouros ao redor do lago do Ibirapuera."
+  },
+  {
+    "refugeID": "REF-113",
+    "name": "Biblioteca Mário de Andrade",
+    "type": "CENTRO_CLIMATIZADO",
+    "address": { "cep": "01045-000", "streetName": "Rua da Consolação", "number": 94, "neighborhood": "República" },
+    "coordinates": { "latitude": -23.5445, "longitude": -46.6419 },
+    "isOpen": true,
+    "openingHours": "Seg. a sáb., 8h às 20h",
+    "amenities": ["Ar-condicionado", "Água potável", "Banheiro", "Assentos"],
+    "description": "Biblioteca pública climatizada, aberta a todos, com bebedouros e áreas de leitura."
+  },
+  {
+    "refugeID": "REF-114",
+    "name": "Praça Benedito Calixto",
+    "type": "PRACA_ARBORIZADA",
+    "address": { "cep": "05406-040", "streetName": "Praça Benedito Calixto", "number": 1, "neighborhood": "Pinheiros" },
+    "coordinates": { "latitude": -23.5659, "longitude": -46.6837 },
+    "isOpen": true,
+    "openingHours": "Diariamente, 5h às 22h",
+    "amenities": ["Sombra", "Bancos"],
+    "description": "Praça arborizada em Pinheiros, boa para pausas durante o dia."
+  }
+]

@@ -1,0 +1,10 @@
+{
+  "coordinates": { "latitude": -23.5614, "longitude": -46.6559 },
+  "address": {
+    "cep": "01310-100",
+    "streetName": "Avenida Paulista",
+    "number": 1578,
+    "neighborhood": "Bela Vista"
+  },
+  "affectedRadiusMeters": 1000
+}
